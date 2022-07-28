@@ -19,7 +19,6 @@
   --section-padding: 7rem;
 }
 
-
 body.dark {
   --bg-color: hsl(var(--hue-1), 19%, 15%);
   --bg-color-1: hsl(var(--hue-1), 21%, 11%);
@@ -74,6 +73,10 @@ ul {
   transition: 0.3s;
 }
 
+.logo span {
+  color: var(--main-color-1);
+}
+
 .sub-heading {
   color: var(--heading-color);
   text-transform: uppercase;
@@ -97,11 +100,69 @@ ul {
   color: var(--text-color);
   font-size: 0.9rem;
   margin: 2rem 0;
+  line-height: 2.3;
 }
 
-.logo span {
-  color: var(--main-color-1);
+
+.cta {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
 }
+
+.cta .btn {
+  margin-right: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  border-radius: 17px;
+  background-color: var(--main-color-1);
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--main-color-dark-1);
+}
+
+.btn.secondary-btn {
+  position: relative;
+  background-color: transparent;
+  color: var(--main-color-1);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0px;
+  border-bottom: 2.5px solid var(--main-color-2);
+  border-radius: 0px;
+  padding: 0.15rem 0;
+}
+
+.btn.secondary-btn::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2.5px;
+  bottom: -2.5px;
+  left: 0;
+  background-color: var(--main-color-1);
+  transition: 0.3s ease-in-out;
+}
+
+.btn.secondary-btn:hover::before {
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  padding: var(--section-padding) 0;
+}
+
+/* Navbar Styling */
 
 header {
   position: fixed;
@@ -206,13 +267,13 @@ nav.container {
   padding: 120px 0;
   width: 100%;
   overflow: hidden;
-  position: relative;
+  position: absolute;
 }
 
 .showcase-area .container {
   display: grid;
   grid-template-columns: 1fr 550px;
-  height: calc(-100vh = 120px);
+  height: calc(100vh - 120px);
   max-width: 600px;
   align-items: center;
 }
@@ -227,59 +288,6 @@ nav.container {
 
 .showcase-area .text {
   margin: 0.8rem 0;
-}
-
-.cta {
-  margin-top: 3.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.cta .btn {
-  margin-right: 1.5rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: .9rem 1.75rem;
-  border-radius: 17px;
-  background-color: var(--main-color-1);
-  color: #fff;
-  font-size: 0.85rem;
-  letter-spacing: 0.4px;
-  text-transform: capitalize;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: var(--main-color-dark-1);
-}
-
-.btn.secondary-btn {
-  position: relative;
-  background-color: transparent;
-  color: var(--main-color-1);
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0px;
-  border-bottom: 2.5px solid var(--main-color-2);
-  border-radius: 0px;
-  padding: 0.15rem 0;
-}
-
-.btn.secondary-btn::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2.5px;
-  bottom: -2.5px;
-  left: 0;
-  background-color: var(--main-color-1);
-  transition: 0.3s ease-in-out;
-}
-
-.btn.secondary-btn:hover::before {
-  width: 100%;
 }
 
 .showcase-image {
@@ -299,6 +307,7 @@ nav.container {
   width: 95%;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
 }
 
 .dots {
@@ -329,4 +338,15 @@ nav.container {
   left: 25%;
   bottom: 120px;
   transform: translate(-50%, -50%);
+}
+
+/* About Section Styling */
+
+.about .container {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+.about .text {
+  margin: 3rem 0 4rem;
 }
